@@ -47,15 +47,15 @@ public class CountryRepositoryTest {
     @Test
     @Sql("test-data.sql")
     void testPopulationDunPays(){
-        log.info("On vérifie la population d'un pays est bien la sommes de ses villes");
-        assertEquals(countryDAO.populationPourPays(1),12,"on doit trouver 12");
+        log.info("On vérifie que la population d'un pays est bien la sommes de la population de ses villes");
+        assertEquals(countryDAO.populationPourChaquePays(1),12,"on doit trouver 12 pour la France");
     }
 
     @Test
     @Sql("test-data.sql")
     void testPopulationParPays() {
-        log.info("On vérifie que le nombre de ligne correspond au nombre de pays");
-        assertEquals(countryDAO.populationParPays().size(), 3, "le nombre de ligne doit être égal au nombre de pays");
+        log.info("On verifie le nombre de ligne de la liste,il doit correspondra au nombre de nombre de pays");
+        assertEquals(countryDAO.populationParPays().size(), 3, "le nombre de ligne est égal à celui du pays");
         log.info("On vérifie que la valeur de la population pour le premier pays (france) correspond bien");
         assertEquals(countryDAO.populationParPays().get(0).getPopulation(), 12,"Test du 1er pays de la liste : la France");
     }

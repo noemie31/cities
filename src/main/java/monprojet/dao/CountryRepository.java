@@ -14,8 +14,8 @@ import monprojet.entity.Country;
 public interface CountryRepository extends JpaRepository<Country, Integer> {
     @Query(value = "SELECT SUM(city.population)"
             +" FROM city"
-            +" WHERE city.country_id = :id_pays", nativeQuery = true)
-    public Integer populationPourPays(int id_pays);
+            +" WHERE city.country_id = :iddupays", nativeQuery = true)
+    public Integer populationPourChaquePays(int iddupays);
 
 
     @Query(value = "SELECT country.name AS name , SUM(city.population) as population"
